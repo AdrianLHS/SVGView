@@ -48,7 +48,9 @@ struct SVGDataImageView: View {
     @ObservedObject var model: SVGDataImage
 
     public var body: some View {
-        image
+        image?
+            .resizable()
+            .scaledToFit()
             .frame(width: model.width, height: model.height)
             .position(x: model.x, y: model.y)
             .offset(x: model.width/2, y: model.height/2)
